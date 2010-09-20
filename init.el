@@ -11,7 +11,7 @@
     (if (fboundp 'server-mode) (server-mode t)))
 
 ;; Load custom OS X configuration
-(load-file "~/.emacs.d/init/osx.el")
+;(load-file "~/.emacs.d/init/osx.el")
 
 ;; Load custom keyboard bindings
 (load-file "~/.emacs.d/init/keyb.el")
@@ -41,39 +41,52 @@
 ;; Load language-specific configuration
 (load-file "~/.emacs.d/init/lang.el")
 
+;; ;(setq load-path (append '("~/.emacs.d/site-lisp/cedet/common") load-path))
+;; ;(setq load-path (append '("~/.emacs.d/site-lisp/cedet/eieio") load-path))
+;; ;(setq load-path (append '("~/.emacs.d/site-lisp/cedet/semantic") load-path))
+;(load-file "~/.emacs.d/site-lisp/cedet/common/cedet.el")
+;; ;(load-file "~/.emacs.d/site-lisp/cedet/semantic/semantic-load.el")
+;; ;(semantic-load-enable-gaudy-code-helpers)
+;(semantic-load-enable-code-helpers)
+
+;; (require 'semanticdb)
+;; ;(global-semanticdb-minor-mode 1)
+;; ;(require 'semanticdb-ectag)
+;; (semantic-load-enable-primary-exuberent-ctags-support)
+
+;; (global-semantic-idle-scheduler-mode 1) ;The idle scheduler with automatically reparse buffers in idle time.
+;; (global-semantic-idle-completions-mode 1) ;Display a tooltip with a list of possible completions near the cursor.
+;; (global-semantic-idle-summary-mode 1) ;Display a tag summary of the lexical token under the cursor.
+
+;; (require 'semantic-ia)
+
+;; (defun my-semantic-hook ()
+;;   (imenu-add-to-menubar "TAGS"))
+;; (add-hook 'semantic-init-hooks 'my-semantic-hook)
+
+(add-to-list 'vc-handled-backends 'SVN)
+
+;; tramp
+(add-to-list 'load-path "~/.emacs.d/site-lisp/tramp/lisp/")
+(require 'tramp)
+(setq tramp-default-method "sshc")
+; respect the PATH variable set
+(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+
 ;; load psvn
 (require 'psvn)
-;(global-set-key (kbd "\C-x v l") 'svn-status-show-svn-log)
+(global-set-key (kbd "\C-x v l") 'svn-status-show-svn-log)
 ;;(global-set-key (kbd "\C-x v =") 'svn-status-show-svn-diff)
-;(global-set-key (kbd "\C-x v =") 'svn-file-show-svn-diff)
-;(global-set-key (kbd "\C-x v e") 'svn-file-show-svn-ediff)
-;(global-set-key (kbd "\C-x v d") 'svn-status-this-directory)
+(global-set-key (kbd "\C-x v =") 'svn-file-show-svn-diff)
+(global-set-key (kbd "\C-x v e") 'svn-file-show-svn-ediff)
+(global-set-key (kbd "\C-x v d") 'svn-status-this-directory)
 ;(global-set-key (kbd "\C-x v s") 'svn-status-switch-to-status-buffer)
 ;(global-set-key (kbd "\C-x v o") 'svn-status-pop-to-status-buffer)
 ;(global-set-key (kbd "\C-x v u") 'svn-status-update-buffer)
-;(global-set-key (kbd "\C-x v c") 'svn-status-commit)
+(global-set-key (kbd "\C-x v c") 'svn-status-commit)
 
 (setq svn-status-display-full-path t)
-
-(require 'tramp)
-
-;; (defun local-file-name (file-name)
-;;   "Convert a full file name to a local file name that can be used for a local svn invocation."
-;;   (interactive "f")
-;;   (message file-name)
-;;   (if (and (fboundp 'file-remote-p) (file-remote-p file-name))
-;;       (message (tramp-file-name-localname (tramp-dissect-file-name file-name)))
-;;     (message file-name))
-;;   (if (and (fboundp 'file-remote-p) (file-remote-p file-name))
-;;       (tramp-file-name-localname (tramp-dissect-file-name file-name))
-;;     file-name))
-
-(defadvice vc-svn-registered (around my-vc-svn-registered-tramp activate)
-  "Don't try to use SVN on files accessed via TRAMP."
-  (if (and (fboundp 'tramp-tramp-file-p)
-	   (tramp-tramp-file-p (ad-get-arg 0)))
-      nil
-    ad-do-it))
+(setq svn-log-edit-show-diff-for-commit t)
 
 ;; Load org-mode config
 (load-file "~/.emacs.d/init/org.el")
@@ -85,6 +98,33 @@
     (kill-new (format "%X" num)))
   (yank))
 
+(defun copy-and-comment-line()
+  "Copy a line, and comment it out"
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (comment-region (line-beginning-position) (line-end-position))
+  (open-line 1)
+  (next-line 1)
+  (yank))
+
+(defun copy-and-comment-region(beg end)
+  "Copy a region, comment it out"
+  (interactive "r")
+  (kill-ring-save beg end)
+  (comment-region beg end)
+  (open-line 1)
+  (next-line 1)
+  (yank))
+  
+(global-set-key (kbd "s-l") 'copy-and-comment-line)
+(global-set-key (kbd "s-;") 'copy-and-comment-region)
+
+;(global-set-key (kbd "s-tab") 'complete-symbol)
+
 ;; Sets emacs customizations to go into a separate file
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
+
+(put 'narrow-to-region 'disabled nil)
