@@ -54,7 +54,7 @@
 (require 'ido)
 (ido-mode t)
 
-(setq ido-ignore-buffers '("\\` " "^\*"))
+(setq ido-ignore-buffers '("\\` " "^\*" "TAGS"))
 (setq ido-work-directory-list-ignore-regexps '(".*"))
 
 ;; (setq 
