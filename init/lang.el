@@ -32,7 +32,7 @@
  "Run perltidy on the current region."
  (interactive)
  (save-excursion
-   (shell-command-on-region (point) (mark) "/sw/bin/perltidy -q" nil t)))
+   (shell-command-on-region (point) (mark) "perltidy -q" nil t)))
 
 ;; (defun perltidy-defun ()
 ;;   "Run perltidy on the current defun."
