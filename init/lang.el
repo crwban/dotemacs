@@ -107,4 +107,26 @@
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
+;; Load espresso-mode
+(autoload 'espresso-mode "espresso" nil t)
+
 ;; END JAVASCRIPT ************************************************************
+
+
+;; HTML **********************************************************************
+
+
+(load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
+
+; This makes 
+(defalias 'html-mode 'nxhtml-mode)
+
+;; END HTML ******************************************************************
+
+
+;; TEMPLATE TOOLKIT **********************************************************
+
+; This needs nxhtml mode to be loaded already
+(add-to-list 'auto-mode-alist '("\\.tt$" . tt-html-mumamo-mode))
+
+;; END TEMPLATE TOOLKIT ******************************************************
