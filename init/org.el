@@ -12,7 +12,7 @@
 
 (setq org-directory "~/org/")
 
-(setq org-agenda-files (file-expand-wildcards "~/org/journal/*.org"))
+(setq org-agenda-files (reverse (file-expand-wildcards "~/org/journal/*.org")))
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
