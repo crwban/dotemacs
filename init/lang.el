@@ -1,9 +1,9 @@
 ;; *** SHELL *****************************************************************
 
 ;; Set shell mode indentation
-(setq standard-indent 2)
-(setq sh-indentation 2
-      sh-basic-offset 2)
+(setq standard-indent 4)
+(setq sh-indentation 4
+      sh-basic-offset 4)
 
 ;; END SHELL *****************************************************************
 
@@ -20,11 +20,13 @@
 ;      cperl-electric-linefeed t
 ;      cperl-electric-lbrace-space t)
 
+(setq cperl-indent-level 4)
+
 ;;  When starting load my hooks
 (add-hook 'cperl-mode-hook 'my-cperl-mode-hook t)
 
 (defun my-cperl-mode-hook ()
-  (cperl-set-style "GNU")
+  (cperl-set-style "CPerl")
   (local-set-key (kbd "\C-c t") 'perltidy-buffer))
 ;  (local-set-key (kbd "\C-c c") 'perlcritic))
 
