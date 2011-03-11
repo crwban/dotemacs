@@ -67,7 +67,7 @@
 (setq py-python-command-args '("-colors" "Linux"))
 
 ;; To fix python completion with ipython...
-(setq ipython-completion-command-string "print(';'.join(__IP.Completer.all_completions('%s')))\n")
+(setq ipython-completion-command-string "print(';'.join(get_ipython().Completer.all_completions('%s')[1])) #PYTHON-MODE SILENT\n")
 
 ;; END PYTHON ****************************************************************
 
