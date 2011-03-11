@@ -71,6 +71,33 @@
 
 ;; END PYTHON ****************************************************************
 
+;; C/C++ *********************************************************************
+
+(defconst fastsim-c-style
+       '((indent-tabs-mode . nil)
+         (c-basic-offset . 4)
+         (tab-width . 8)
+         (c-comment-only-line-offset . 0)
+         (c-hanging-braces-alist . ((substatement-open before after)))
+         (c-offsets-alist . ((statement-block-intro . +)
+                             (substatement-open . 0)
+                             (label . 0)
+                             (statement-cont . +)
+                             (innamespace . 0)
+                             (inline-open . 0)
+                             ))
+         )
+       "FastSim C++ Programming Style")
+
+(defun my-c-hook ()
+  (c-add-style "fastsim" fastsim-c-style t)
+  (c-set-style "fastsim")
+)
+
+(add-hook 'c-mode-hook 'my-c-hook)
+(add-hook 'c++-mode-hook 'my-c-hook)
+
+;; END C/C++ *****************************************************************
 
 ;; XML ***********************************************************************
 
