@@ -17,12 +17,14 @@
 ;; Colour themes
 (setq load-path (append '("~/.emacs.d/site-lisp/color-theme") load-path))
 (require 'color-theme)
+(require 'zenburn)
 ;(color-theme-initialize)
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
      (if window-system
-         (color-theme-clarity))))
+         ;; (color-theme-clarity))))
+         (color-theme-zenburn))))
 
 ;; No gui dialogs
 (setq use-file-dialog nil)
