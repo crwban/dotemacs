@@ -1,3 +1,4 @@
+;; svn
 (add-to-list 'vc-handled-backends 'SVN)
 
 ;; load psvn
@@ -14,3 +15,6 @@
 
 (setq svn-status-display-full-path t)
 (setq svn-log-edit-show-diff-for-commit t)
+
+;; git
+(add-to-list 'vc-handled-backends 'GIT)
