@@ -9,11 +9,6 @@
 (if (fboundp 'tooltip-mode) (tooltip-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-;(add-to-list 'default-frame-alist '(font . "Dejavu Sans Mono-10"))
-;(add-to-list 'default-frame-alist '(font . "Inconsolata-10"))
-;(add-to-list 'default-frame-alist '(font . "Dejavu Sans Mono-9"))
-;(add-to-list 'default-frame-alist '(font . "Dejavu Sans Mono-12"))
-
 ;; Colour themes
 (setq load-path (append '("~/.emacs.d/site-lisp/color-theme") load-path))
 (require 'color-theme)
@@ -25,6 +20,17 @@
      (if window-system
          ;; (color-theme-clarity))))
          (color-theme-zenburn))))
+;; (eval-after-load "color-theme"
+;;   '(progn
+;;      (color-theme-initialize)))
+
+(add-hook 'after-make-frame-functions
+          (lambda (frame)
+            (set-variable 'color-theme-is-global nil)
+            (select-frame frame)
+            (if window-system
+                (color-theme-zenburn)
+              (color-theme-clarity))))
 
 ;; No gui dialogs
 (setq use-file-dialog nil)
