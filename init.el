@@ -11,8 +11,12 @@
     (if (fboundp 'server-mode) (server-mode t)))
 
 ;; Load custom OS X configuration
-(if (eq system-type "darwin")
+(if (eq system-type 'darwin)
     (load-file "~/.emacs.d/init/osx.el"))
+(if (eq system-type 'gnu/linux)
+    (load-file "~/.emacs.d/init/linux.el"))
+(if (eq system-type 'windows-nt)
+    (load-file "~/.emacs.d/init/windows.el"))
 
 ;; Load custom keyboard bindings
 (load-file "~/.emacs.d/init/keyb.el")
