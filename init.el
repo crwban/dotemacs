@@ -110,7 +110,17 @@
   (open-line 1)
   (next-line 1)
   (yank))
-  
+
+(defun unfill-paragraph ()
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil)))
+
+(defun unfill-region (start end)
+  (interactive "r")
+  (let ((fill-column (point-max)))
+    (fill-region start end nil)))
+
 (global-set-key (kbd "s-l") 'copy-and-comment-line)
 (global-set-key (kbd "s-;") 'copy-and-comment-region)
 
