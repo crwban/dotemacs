@@ -69,3 +69,6 @@
 ;;  ido-confirm-unique-completion nil ; wait for RET, even with unique completion
 ;;  ido-auto-merge-werk-directories-length -1) ; if nothing matches, i prob. ...
 ;;                                         ; ... want a new file, not a weird match
+
+(setq browse-url-browser-function (quote browse-url-generic))
+(setq browse-url-generic-program "chromium-browser")
