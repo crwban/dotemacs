@@ -56,18 +56,33 @@
 
 ;; PYTHON ********************************************************************
 
+(setq load-path (append '("~/.emacs.d/site-lisp/python-mode") load-path))
+(setq py-install-directory "~/.emacs.d/site-lisp/python-mode")
+
+;;  When starting load my hooks
+(add-hook 'python-mode-hook 'my-python-mode-hook t)
+
+(defun my-python-mode-hook ()
+  (local-set-key [(control backspace)] 'backward-kill-word)
+  (setq tab-width 4)
+  (unless (eq buffer-file-name nil) (flymake-mode 1)))
+
 ;; Use python-mode.el instead of the standard python.el which comes with emacs
-(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
-(setq interpreter-mode-alist (cons '("python" . python-mode)
-                                   interpreter-mode-alist))
-(autoload 'python-mode "python-mode" "Python editing mode." t)
+(require 'python-mode)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 
-;; ipython support (interactive python shell)
-(require 'ipython)
-(setq py-python-command-args '("-colors" "Linux"))
+(when (load "flymake" t)
+  (defun flymake-pyflakes-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+           (local-file (file-relative-name
+                        temp-file
+                        (file-name-directory buffer-file-name))))
+      ;; (list "pyflakes"  (list local-file))))
+      (list "epylint"  (list local-file))))
 
-;; To fix python completion with ipython...
-(setq ipython-completion-command-string "print(';'.join(get_ipython().Completer.all_completions('%s')[1])) #PYTHON-MODE SILENT\n")
+  (add-to-list 'flymake-allowed-file-name-masks
+               '("\\.py\\'" flymake-pyflakes-init)))
 
 ;; END PYTHON ****************************************************************
 
