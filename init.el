@@ -75,7 +75,6 @@
 ;; Load org-mode config
 (load-file "~/.emacs.d/init/org.el")
 
-
 (defun num-to-hex (beg end)
   "Convert a number to hex"
   (interactive "r")
