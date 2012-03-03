@@ -69,14 +69,6 @@
 ;;   (imenu-add-to-menubar "TAGS"))
 ;; (add-hook 'semantic-init-hooks 'my-semantic-hook)
 
-
-;; tramp
-(add-to-list 'load-path "~/.emacs.d/site-lisp/tramp/lisp/")
-(require 'tramp)
-(setq tramp-default-method "sshc")
-; respect the PATH variable set
-(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
-
 ;; Load VC specific config
 (load-file "~/.emacs.d/init/vc.el")
 
