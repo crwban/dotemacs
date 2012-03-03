@@ -60,6 +60,12 @@
 (setq remember-handler-functions '(org-remember-handler))
 (add-hook 'remember-mode-hook 'org-remember-apply-template)
 
+(add-hook 'org-load-hook
+          (lambda ()
+            ; Change the 4th level org face - light purple-y
+            (set-face-attribute 'org-level-4 nil
+                                :foreground "thistle2")))
+
 ;; (setq org-remember-templates
 ;;       '(("todo" ?t "* TODO %?\n  %i\n  %a" "~/org/codex.org" "Tasks")
 ;;         ("notes" ?n "* %?\n  %i\n  %a" "~/org/codex.org" "Inbox and Notes")
