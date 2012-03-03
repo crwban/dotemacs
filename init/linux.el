@@ -1,3 +1,6 @@
+;; On Linux, hide the menu bar...
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+
 ;; tramp
 (add-to-list 'load-path "~/.emacs.d/site-lisp/tramp/lisp/")
 (require 'tramp)

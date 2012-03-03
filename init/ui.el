@@ -3,11 +3,10 @@
 (setq inhibit-startup-message t)
 (setq inhibit-default-init t)
 
-;; Hide toolbar and menu - learn the keyboard shortcuts instead!
+;; Hide toolbar, scroll bar, don't use tooltips
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'tooltip-mode) (tooltip-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'tooltip-mode) (tooltip-mode -1))
 
 ;; Colour themes
 (setq load-path (append '("~/.emacs.d/site-lisp/color-theme") load-path))
