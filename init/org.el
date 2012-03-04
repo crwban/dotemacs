@@ -1,8 +1,10 @@
 ;; org-mode stuff
 
 ;(setq load-path (cons "~/.emacs.d/site-lisp/org/lisp" load-path))
+(setq load-path (cons "~/.emacs.d/site-list/org-mode/lisp" load-path))
+(setq load-path (cons "~/.emacs.d/site-list/org-mode/contrib/lisp" load-path))
 
-;(require 'org-install)
+(require 'org-install)
 
 ;(setq org-CUA-compatible t)
 (setq org-replace-disputed-keys t)
