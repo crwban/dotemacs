@@ -1,6 +1,5 @@
 ;; org-mode stuff
 
-;(setq load-path (cons "~/.emacs.d/site-lisp/org/lisp" load-path))
 (setq load-path (cons "~/.emacs.d/site-lisp/org-mode/lisp" load-path))
 (setq load-path (cons "~/.emacs.d/site-lisp/org-mode/contrib/lisp" load-path))
 
