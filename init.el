@@ -117,8 +117,9 @@
 
 ;(global-set-key (kbd "s-tab") 'complete-symbol)
 
+(put 'narrow-to-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
 ;; Sets emacs customizations to go into a separate file
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
-
-(put 'narrow-to-region 'disabled nil)
