@@ -159,11 +159,12 @@
 
 ;; HTML **********************************************************************
 
-
 (load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
 
 ; This makes 
 (defalias 'html-mode 'nxhtml-mode)
+
+(setq nxml-child-indent standard-indent)
 
 ;; END HTML ******************************************************************
 
