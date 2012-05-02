@@ -71,4 +71,3 @@
 ;;                                         ; ... want a new file, not a weird match
 
 (setq browse-url-browser-function (quote browse-url-generic))
-(setq browse-url-generic-program "chromium-browser")
