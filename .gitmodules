@@ -7,3 +7,4 @@
 [submodule "site-lisp/nxhtml"]
 	path = site-lisp/nxhtml
 	url = https://github.com/emacsmirror/nxhtml.git
+	ignore = dirty
