@@ -14,7 +14,7 @@
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
-(add-hook 'org-mode-hook 'turn-on-auto-fill)
+;(add-hook 'org-mode-hook 'turn-on-auto-fill)
 ;(add-hook 'org-mode-hook 'flyspell-mode)
 
 (setq org-directory "~/org/")
