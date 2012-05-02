@@ -20,13 +20,12 @@
 ;      cperl-electric-linefeed t
 ;      cperl-electric-lbrace-space t)
 
-(setq cperl-indent-level 4)
-
 ;;  When starting load my hooks
 (add-hook 'cperl-mode-hook 'my-cperl-mode-hook t)
 
 (defun my-cperl-mode-hook ()
   (cperl-set-style "CPerl")
+  (setq cperl-indent-level 4)
   (local-set-key (kbd "\C-c t") 'perltidy-buffer))
 ;  (local-set-key (kbd "\C-c c") 'perlcritic))
 
