@@ -8,3 +8,6 @@
 	path = site-lisp/nxhtml
 	url = https://github.com/emacsmirror/nxhtml.git
 	ignore = dirty
+[submodule "site-lisp/python-mode"]
+	path = site-lisp/python-mode
+	url = https://github.com/emacsmirror/python-mode.git
