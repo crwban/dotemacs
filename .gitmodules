@@ -14,3 +14,6 @@
 [submodule "site-lisp/slime"]
 	path = site-lisp/slime
 	url = https://github.com/emacsmirror/slime.git
+[submodule "site-lisp/magit"]
+	path = site-lisp/magit
+	url = https://github.com/magit/magit.git
