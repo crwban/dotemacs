@@ -64,6 +64,8 @@
 (defun my-python-mode-hook ()
   (local-set-key [(control backspace)] 'backward-kill-word)
   (setq tab-width 4)
+  (setq imenu-create-index-function #'py-imenu-create-index-new)
+  (setq py-shell-name "ipython")
   (unless (eq buffer-file-name nil) (flymake-mode 1)))
 
 ;; Use python-mode.el instead of the standard python.el which comes with emacs
