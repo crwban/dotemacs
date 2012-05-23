@@ -130,7 +130,7 @@
 (fset 'xml-mode 'nxml-mode)
 
 (setq nxml-slash-auto-complete-flag t)
-(add-hook 'nxml-mode-hook 'turn-on-auto-fill)
+;(add-hook 'nxml-mode-hook 'turn-on-auto-fill)
 (add-hook 'nxml-mode-hook 'flyspell-mode)
 
 ;; END XML *******************************************************************
