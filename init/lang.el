@@ -73,7 +73,7 @@
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 
 (when (load "flymake" t)
-  (defun flymake-pyflakes-init ()
+  (defun flymake-pylint-init ()
     (let* ((temp-file (flymake-init-create-temp-buffer-copy
                        'flymake-create-temp-inplace))
            (local-file (file-relative-name
@@ -83,7 +83,7 @@
       (list "epylint"  (list local-file))))
 
   (add-to-list 'flymake-allowed-file-name-masks
-               '("\\.py\\'" flymake-pyflakes-init)))
+               '("\\.py\\'" flymake-pylint-init)))
 
 ;; END PYTHON ****************************************************************
 
