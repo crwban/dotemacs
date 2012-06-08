@@ -11,6 +11,8 @@
 ;; Colour themes
 (setq load-path (append '("~/.emacs.d/site-lisp/color-theme") load-path))
 (require 'color-theme)
+
+(setq load-path (append '("~/.emacs.d/site-lisp/zenburn") load-path))
 (require 'zenburn)
 ;(color-theme-initialize)
 (eval-after-load "color-theme"
