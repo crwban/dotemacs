@@ -21,3 +21,4 @@
 [submodule "site-lisp/tramp"]
 	path = site-lisp/tramp
 	url = https://github.com/emacsmirror/tramp.git
+	ignore = dirty
