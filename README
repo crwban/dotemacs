@@ -4,19 +4,23 @@ The configuration currently has the following layout:
 
 ~/.emacs.d/:
 init.el
-init/keyb.el       - keyboard bindings
-init/lang.el       - language support
-init/linux.el      - Linux specifice options
-init/modeline.el   - modeline customisation
-init/org.el        - org-mode setup
-init/osx.el        - OS X specific options
-init/settings.el   - general settings
-init/ui.el         - UI specific options
-init/vc.el         - version control options
-init/windows.el    - Windows specific options
+init/keyb.el          - keyboard bindings
+init/lang.el          - language support
+init/linux.el         - Linux specifice options
+init/modeline.el      - modeline customisation
+init/org.el           - org-mode setup
+init/osx.el           - OS X specific options
+init/settings.el      - general settings
+init/ui.el            - UI specific options
+init/vc.el            - version control options
+init/windows.el       - Windows specific options
 
-site-lisp/zenburn  - Submodule linking to https://github.com/dbrock/zenburn-el.git
-site-lisp/org-mode - Submodule linking to git://orgmode.org/org-mode.git
+site-lisp/zenburn     - Submodule linking to https://github.com/dbrock/zenburn-el.git
+site-lisp/org-mode    - Submodule linking to git://orgmode.org/org-mode.git
+site-lisp/nxhtml      - Submodule linking to https://github.com/emacsmirror/nxhtml.git
+site-lisp/python-mode - Submodule linking to https://github.com/emacsmirror/python-mode.git
+site-lisp/slime       - Submodule linking to https://github.com/emacsmirror/slime.git
+site-list/magit       - Submodule linking to https://github.com/magit/magit.git
 
 The file ~/.emacs.d/init.el replaces ~/.emacs - emacs looks in both
 these locations for its initialisation file.
