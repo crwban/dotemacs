@@ -8,30 +8,9 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tooltip-mode) (tooltip-mode -1))
 
-;; Colour themes
-(setq load-path (append '("~/.emacs.d/site-lisp/color-theme") load-path))
-(require 'color-theme)
-
-(setq load-path (append '("~/.emacs.d/site-lisp/zenburn") load-path))
-(require 'zenburn)
-;(color-theme-initialize)
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-initialize)
-     (if window-system
-         ;; (color-theme-clarity))))
-         (color-theme-zenburn))))
-;; (eval-after-load "color-theme"
-;;   '(progn
-;;      (color-theme-initialize)))
-
-(add-hook 'after-make-frame-functions
-          (lambda (frame)
-            (set-variable 'color-theme-is-global nil)
-            (select-frame frame)
-            (if window-system
-                (color-theme-zenburn)
-              (color-theme-clarity))))
+;; Colour theme
+(add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/zenburn")
+(load-theme 'zenburn t)
 
 ;; No gui dialogs
 (setq use-file-dialog nil)
