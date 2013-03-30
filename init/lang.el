@@ -10,7 +10,7 @@
 
 ;; PERL **********************************************************************
 
-;;; use cperl-mode instead of perl-mode                                        
+;;; use cperl-mode instead of perl-mode
 (defalias 'perl-mode 'cperl-mode)
 ;; Turns on most of the CPerlMode options
 ;(setq cperl-hairy t)
@@ -55,10 +55,54 @@
 
 ;; PYTHON ********************************************************************
 
-(setq load-path (append '("~/.emacs.d/site-lisp/python-mode") load-path))
-(setq py-install-directory "~/.emacs.d/site-lisp/python-mode")
+(setq load-path (append '("~/.emacs.d/site-lisp/pymacs") load-path))
 
-;;  When starting load my hooks
+(setq load-path (append '("~/.emacs.d/site-lisp/auto-complete/lib/popup") load-path))
+(setq load-path (append '("~/.emacs.d/site-lisp/auto-complete/lib/fuzzy") load-path))
+(setq load-path (append '("~/.emacs.d/site-lisp/auto-complete") load-path))
+(require 'auto-complete-config)
+(ac-config-default)
+
+(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+
+;; The ac-source can be enabled solely using
+;; (setq ac-sources '(ac-source-pycomplete))
+;; or before the other sources using
+;(add-to-list 'ac-sources 'ac-source-pycomplete)
+
+;; Set up python-mode
+(setq py-install-directory "~/.emacs.d/site-lisp/python-mode/")
+(add-to-list 'load-path py-install-directory)
+
+;; Use python-mode.el instead of the standard python.el which comes with emacs
+(require 'python-mode)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+
+(defun load-pycomplete ()
+  "Load and initialize pycomplete."
+  (interactive)
+  (let* ((pyshell (py-choose-shell))
+         (path (getenv "PYTHONPATH")))
+    (setenv "PYTHONPATH" (concat
+                          (expand-file-name py-install-directory) "completion"
+                          (if path (concat path-separator path))))
+    (if (py-install-directory-check)
+        (progn
+          (setenv "PYMACS_PYTHON" (if (string-match "IP" pyshell)
+                                      "python"
+                                    pyshell))
+          (autoload 'pymacs-apply "pymacs")
+          (autoload 'pymacs-call "pymacs")
+          (autoload 'pymacs-eval "pymacs")
+          (autoload 'pymacs-exec "pymacs")
+          (autoload 'pymacs-load "pymacs")
+          ;; (autoload 'pymacs-autoload "pymacs")
+          (load (concat py-install-directory "completion/pycomplete.el") nil t)
+          (add-hook 'python-mode-hook 'py-complete-initialize)
+          (message "Loaded pycomplete..."))
+      (error "`py-install-directory' not set, see INSTALL"))))
+
+;; ;;  When starting load my hooks
 (add-hook 'python-mode-hook 'my-python-mode-hook t)
 
 (defun my-python-mode-hook ()
@@ -66,11 +110,14 @@
   (setq tab-width 4)
   (setq imenu-create-index-function #'py-imenu-create-index-new)
   (setq py-shell-name "ipython")
+  (setq py-load-pymacs-p t)
+  (setq py-set-complete-keymap-p t)
+  (seqt py-complete-function nil)
+  ;(load-pycomplete)
   (unless (eq buffer-file-name nil) (flymake-mode 1)))
 
-;; Use python-mode.el instead of the standard python.el which comes with emacs
-(require 'python-mode)
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+;(eval-after-load 'pymacs '(load-pycomplete))
+(load-pycomplete)
 
 (when (load "flymake" t)
   (defun flymake-pylint-init ()
@@ -162,7 +209,7 @@
 
 (load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
 
-; This makes 
+; This makes
 (defalias 'html-mode 'nxhtml-mode)
 
 (setq nxml-child-indent standard-indent)
