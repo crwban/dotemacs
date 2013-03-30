@@ -22,3 +22,9 @@
 [submodule "site-lisp/zenburn"]
 	path = site-lisp/zenburn
 	url = https://github.com/bbatsov/zenburn-emacs.git
+[submodule "site-lisp/auto-complete"]
+	path = site-lisp/auto-complete
+	url = https://github.com/auto-complete/auto-complete.git
+[submodule "site-lisp/pymacs"]
+	path = site-lisp/pymacs
+	url = https://github.com/pinard/Pymacs.git
