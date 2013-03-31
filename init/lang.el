@@ -223,3 +223,13 @@
 (add-to-list 'auto-mode-alist '("\\.tt$" . tt-html-mumamo-mode))
 
 ;; END TEMPLATE TOOLKIT ******************************************************
+
+;; Workaround the annoying warnings:
+;;    Warning (mumamo-per-buffer-local-vars):
+;;    Already 'permanent-local t: buffer-file-name
+(when (and (equal emacs-major-version 24)
+           (or (equal emacs-minor-version 2)
+               (equal emacs-minor-version 3)))
+  (eval-after-load "mumamo"
+    '(setq mumamo-per-buffer-local-vars
+           (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
