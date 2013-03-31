@@ -112,7 +112,7 @@
   (setq py-shell-name "ipython")
   (setq py-load-pymacs-p t)
   (setq py-set-complete-keymap-p t)
-  (seqt py-complete-function nil)
+  (setq py-complete-function nil)
   ;(load-pycomplete)
   (unless (eq buffer-file-name nil) (flymake-mode 1)))
 
