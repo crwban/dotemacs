@@ -84,7 +84,8 @@
   (let* ((pyshell (py-choose-shell))
          (path (getenv "PYTHONPATH")))
     (setenv "PYTHONPATH" (concat
-                          (expand-file-name py-install-directory) "completion"
+                          (expand-file-name py-install-directory) "completion" path-separator
+                          (expand-file-name "~/.emacs.d/site-lisp/pymacs")
                           (if path (concat path-separator path))))
     (if (py-install-directory-check)
         (progn
