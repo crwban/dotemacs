@@ -43,6 +43,12 @@
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 (setq ediff-split-window-function 'split-window-horizontally)
 
+; Load flycheck
+(setq load-path (append '("~/.emacs.d/site-lisp/flycheck") load-path))
+(setq load-path (append '("~/.emacs.d/site-lisp/s") load-path))
+(setq load-path (append '("~/.emacs.d/site-lisp/dash") load-path))
+(require 'flycheck)
+
 ;; Load language-specific configuration
 (load-file "~/.emacs.d/init/lang.el")
 
