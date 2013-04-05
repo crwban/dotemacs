@@ -67,6 +67,7 @@
 (ac-config-default)
 
 (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+(define-key ac-mode-map (kbd "<s-tab>") 'auto-complete)
 
 ;; The ac-source can be enabled solely using
 ;; (setq ac-sources '(ac-source-pycomplete))
