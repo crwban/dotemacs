@@ -50,6 +50,9 @@
 ;(setq load-path (append '("~/.emacs.d/site-lisp/pde") load-path))
 ;(require 'perlcritic)
 
+; Turn on flycheck mode for perl
+(add-hook 'cperl-mode-hook 'flycheck-mode)
+
 ;; END PERL ******************************************************************
 
 
@@ -113,25 +116,13 @@
   (setq py-shell-name "ipython")
   (setq py-load-pymacs-p t)
   (setq py-set-complete-keymap-p t)
-  (setq py-complete-function nil)
-  ;(load-pycomplete)
-  (unless (eq buffer-file-name nil) (flymake-mode 1)))
+  (setq py-complete-function nil))
 
 ;(eval-after-load 'pymacs '(load-pycomplete))
 (load-pycomplete)
 
-(when (load "flymake" t)
-  (defun flymake-pylint-init ()
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                       'flymake-create-temp-inplace))
-           (local-file (file-relative-name
-                        temp-file
-                        (file-name-directory buffer-file-name))))
-      ;; (list "pyflakes"  (list local-file))))
-      (list "epylint"  (list local-file))))
-
-  (add-to-list 'flymake-allowed-file-name-masks
-               '("\\.py\\'" flymake-pylint-init)))
+; Turn on flycheck mode for python
+(add-hook 'python-mode-hook 'flycheck-mode)
 
 ;; END PYTHON ****************************************************************
 
@@ -180,6 +171,7 @@
 (setq nxml-slash-auto-complete-flag t)
 ;(add-hook 'nxml-mode-hook 'turn-on-auto-fill)
 (add-hook 'nxml-mode-hook 'flyspell-mode)
+(add-hook 'nxml-mode-hook 'auto-complete-mode)
 
 ;; END XML *******************************************************************
 
