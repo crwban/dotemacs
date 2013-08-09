@@ -180,9 +180,10 @@
 ;; YAML **********************************************************************
 
 ;; yaml mode...
-;(require 'yaml-mode)
-;(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-;(add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
+(setq load-path (append '("~/.emacs.d/site-lisp/yaml-mode") load-path))
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
 
 ;; END YAML ******************************************************************
 
@@ -227,3 +228,16 @@
   (eval-after-load "mumamo"
     '(setq mumamo-per-buffer-local-vars
            (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
+
+;; HASKELL *******************************************************************
+
+(load "~/.emacs.d/site-lisp/haskell-mode/haskell-site-file.el")
+
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+
+(add-hook 'haskell-mode-hook 'font-lock-mode)
+
+;; END HASKELL ***************************************************************
