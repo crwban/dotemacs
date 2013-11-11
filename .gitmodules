@@ -3,49 +3,49 @@
 	url = git://orgmode.org/org-mode.git
 [submodule "site-lisp/nxhtml"]
 	path = site-lisp/nxhtml
-	url = https://github.com/emacsmirror/nxhtml.git
+	url = git@github.com:emacsmirror/nxhtml.git
 	ignore = dirty
 [submodule "site-lisp/python-mode"]
 	path = site-lisp/python-mode
-	url = https://github.com/emacsmirror/python-mode.git
+	url = git@github.com:emacsmirror/python-mode.git
 	ignore = dirty
 [submodule "site-lisp/slime"]
 	path = site-lisp/slime
-	url = https://github.com/emacsmirror/slime.git
+	url = git@github.com:emacsmirror/slime.git
 [submodule "site-lisp/magit"]
 	path = site-lisp/magit
-	url = https://github.com/magit/magit.git
+	url = git@github.com:magit/magit.git
 [submodule "site-lisp/tramp"]
 	path = site-lisp/tramp
-	url = https://github.com/emacsmirror/tramp.git
+	url = git@github.com:emacsmirror/tramp.git
 	ignore = dirty
 [submodule "site-lisp/zenburn"]
 	path = site-lisp/zenburn
-	url = https://github.com/bbatsov/zenburn-emacs.git
+	url = git@github.com:bbatsov/zenburn-emacs.git
 [submodule "site-lisp/auto-complete"]
 	path = site-lisp/auto-complete
-	url = https://github.com/auto-complete/auto-complete.git
+	url = git@github.com:auto-complete/auto-complete.git
 [submodule "site-lisp/pymacs"]
 	path = site-lisp/pymacs
-	url = https://github.com/pinard/Pymacs.git
+	url = git@github.com:pinard/Pymacs.git
 [submodule "site-lisp/flycheck"]
 	path = site-lisp/flycheck
-	url = https://github.com/lunaryorn/flycheck.git
+	url = git@github.com:lunaryorn/flycheck.git
 [submodule "site-lisp/s"]
 	path = site-lisp/s
-	url = https://github.com/magnars/s.el.git
+	url = git@github.com:magnars/s.el.git
 [submodule "site-lisp/dash"]
 	path = site-lisp/dash
-	url = https://github.com/magnars/dash.el.git
+	url = git@github.com:magnars/dash.el.git
 [submodule "site-lisp/haskell-mode"]
 	path = site-lisp/haskell-mode
-	url = https://github.com/haskell/haskell-mode.git
+	url = git@github.com:haskell/haskell-mode.git
 [submodule "site-lisp/yaml-mode"]
 	path = site-lisp/yaml-mode
-	url = https://github.com/yoshiki/yaml-mode.git
+	url = git@github.com:yoshiki/yaml-mode.git
 [submodule "site-lisp/f"]
 	path = site-lisp/f
-	url = https://github.com/rejeep/f.el.git
+	url = git@github.com:rejeep/f.el.git
 [submodule "site-lisp/cl-lib"]
 	path = site-lisp/cl-lib
-	url = https://github.com/emacsmirror/cl-lib.git
+	url = git@github.com:emacsmirror/cl-lib.git
