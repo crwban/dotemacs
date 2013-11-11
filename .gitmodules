@@ -43,3 +43,9 @@
 [submodule "site-lisp/yaml-mode"]
 	path = site-lisp/yaml-mode
 	url = https://github.com/yoshiki/yaml-mode.git
+[submodule "site-lisp/f"]
+	path = site-lisp/f
+	url = https://github.com/rejeep/f.el.git
+[submodule "site-lisp/cl-lib"]
+	path = site-lisp/cl-lib
+	url = https://github.com/emacsmirror/cl-lib.git

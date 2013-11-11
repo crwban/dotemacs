@@ -45,6 +45,8 @@
 
 ; Load flycheck
 (setq load-path (append '("~/.emacs.d/site-lisp/flycheck") load-path))
+(setq load-path (append '("~/.emacs.d/site-lisp/f") load-path))
+(setq load-path (append '("~/.emacs.d/site-lisp/cl-lib") load-path))
 (setq load-path (append '("~/.emacs.d/site-lisp/s") load-path))
 (setq load-path (append '("~/.emacs.d/site-lisp/dash") load-path))
 (require 'flycheck)
